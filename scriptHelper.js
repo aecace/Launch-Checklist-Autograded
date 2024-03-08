@@ -2,6 +2,7 @@
 
 require('cross-fetch/polyfill');
 
+// TASK 3, will uncomment section in func at some point
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
     /*
@@ -18,13 +19,20 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function validateInput(testInput) {
-    
+    // TASK 2
+    // ex: isNaN(fuelLevel);
  }
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
+    // TASK 2, majority of code
+    // function to call after form submission
+    // if statements
+    // validate input
+    // ex: validateInput(pilot) returns that pilot is not an empty string;
+    // change the color and text of items, change visibility style of items from html, etc.
  }
  
+ // TASK 3
  async function myFetch() {
      let planetsReturned;
  
@@ -34,7 +42,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      return planetsReturned;
  }
  
+ // TASK 3
  function pickPlanet(planets) {
+    // pass all planets, return only 1
+
+    // let planet = {};
+    // get random number and get planet with that integer
+    // return planet;
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
