@@ -20,14 +20,25 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  
  function validateInput(testInput) {
     // TASK 2
+    // takes in a string as a parameter
     // ex: isNaN(fuelLevel);
+    // return "Empty", "Not a Number", or "Is a Number" as appropriate
+
+    // Alert: all fields are required.
+    // User entered valid info for each of the fields (easily converted to correct data type).
+        // pilot and co-pilot names should be strings
+        // fuel level and cargo mass should be numbers
+
+
  }
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     // TASK 2, majority of code
     // function to call after form submission
+
+    // take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass
     // if statements
-    // validate input
+    // use validateInput() to complete
     // ex: validateInput(pilot) returns that pilot is not an empty string;
     // change the color and text of items, change visibility style of items from html, etc.
  }
