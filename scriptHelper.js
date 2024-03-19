@@ -2,32 +2,26 @@
 
 require('cross-fetch/polyfill');
 
-// TASK 3, will uncomment section in func at some point
+// TASK 3
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
-                     <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
-                 </ol>
-                 <img src="">
-    */
+    document.getElementById("missionTarget").innerHTML = `
+        <h2>Mission Destination</h2>
+        <ol>
+            <li>Name: ${name}</li>
+            <li>Diameter: ${diameter}</li>
+            <li>Star: ${star}</li>
+            <li>Distance from Earth: ${distance}</li>
+            <li>Number of Moons: ${moons}</li>
+        </ol>
+        <img src="${imageUrl}">
+    `;
  }
  
  function validateInput(testInput) {
     // TASK 2
     // takes in a string as a parameter
-    // ex: isNaN(fuelLevel);
-    // return "Empty", "Not a Number", or "Is a Number" as appropriate
-    
-    // if (testInput === "" || isNaN(testInput) || !isNaN(testInput)) {
-    //     alert("All fields are required!");
-    //     event.preventDefault();
-    // }
+    //return "Empty", "Not a Number", or "Is a Number" as appropriate
 
     if (testInput === "") {
         return "Empty";
@@ -40,15 +34,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
     // TASK 2, majority of code
-    // function to call after form submission
-
+    //function to call after form submission
     // take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass
-    // if statements
-    // use validateInput() to complete
-    // ex: validateInput(pilot) returns that pilot is not an empty string;
-
-    // Alert: all fields are required.
-    // User entered valid info for each of the fields (easily converted to correct data type).
+    //use validateInput() to complete
         // pilot and co-pilot names should be strings
         // fuel level and cargo mass should be numbers
     if (validateInput(pilot) === "Empty" && validateInput(copilot) === "Empty" && validateInput(fuelLevel) === "Empty" && validateInput(cargoMass) === "Empty") {
@@ -57,8 +45,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         alert("Enter valid info for each of the fields!");
     }
 
-
-    // change the color and text of items, change visibility style of items from html, etc.
+    //change the color and text of items, change visibility style of items from html, etc.
     // declare list items
     let listPilotStatus = document.getElementById("pilotStatus");
     let listCopilotStatus = document.getElementById("copilotStatus");
@@ -99,21 +86,18 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  
  // TASK 3
  async function myFetch() {
-     let planetsReturned;
- 
-     planetsReturned = await fetch().then( function(response) {
-         });
- 
-     return planetsReturned;
+    //add the URL and return response.json()
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json");
+    return planetsReturned.json();
  }
  
  // TASK 3
  function pickPlanet(planets) {
     // pass all planets, return only 1
-
-    // let planet = {};
-    // get random number and get planet with that integer
+    // Using Math.random(), return one planet from the list with a randomly-selected index
     // return planet;
+    let planet = Math.floor(Math.random()*planets.length);
+    return planets[planet];
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;

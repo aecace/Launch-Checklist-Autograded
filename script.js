@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-const { formSubmission } = require("./scriptHelper");
+const { formSubmission, myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 //Add an event handler for the window load event
 window.addEventListener("load", function() {
@@ -26,13 +26,19 @@ window.addEventListener("load", function() {
     // TASK 5
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    let listedPlanetsResponse;
+    let listedPlanetsResponse = myFetch();
     listedPlanetsResponse.then(function (result) {
         listedPlanets = result;
-        console.log(listedPlanets);
+        // console.log(listedPlanets);
     }).then(function () {
-        console.log(listedPlanets);
+        // console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+        
+        // select a planet at random from listedPlanets
+        let planetPicked = pickPlanet(listedPlanets);
+
+        // pass that information to addDestinationInfo()
+        addDestinationInfo(document, planetPicked.name, planetPicked.diameter, planetPicked.star, planetPicked.distance, planetPicked.moons, planetPicked.image);
     })
 
     // add event listener for button (id="formSubmit")
