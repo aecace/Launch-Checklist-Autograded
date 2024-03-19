@@ -39,9 +39,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     //use validateInput() to complete
         // pilot and co-pilot names should be strings
         // fuel level and cargo mass should be numbers
-    if (validateInput(pilot) === "Empty" && validateInput(copilot) === "Empty" && validateInput(fuelLevel) === "Empty" && validateInput(cargoMass) === "Empty") {
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
         alert("All fields are required!");
-    } else if (validateInput(pilot) !== "Not a Number" && validateInput(copilot) !== "Not a Number" && validateInput(fuelLevel) !== "Is a Number" && validateInput(cargoMass) !== "Is a Number") {
+    } else if (validateInput(pilot) !== "Not a Number" || validateInput(copilot) !== "Not a Number" || validateInput(fuelLevel) !== "Is a Number" || validateInput(cargoMass) !== "Is a Number") {
         alert("Enter valid info for each of the fields!");
     }
 
@@ -87,7 +87,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  // TASK 3
  async function myFetch() {
     //add the URL and return response.json()
-    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json");
+    let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json");    
     return planetsReturned.json();
  }
  
